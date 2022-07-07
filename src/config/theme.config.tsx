@@ -16,6 +16,7 @@ const theme = createTheme({
     mode: "dark",
     background: {
       default: themePalette.BG,
+      paper: themePalette.BG,
     },
     primary: {
       main: themePalette.LIME,
