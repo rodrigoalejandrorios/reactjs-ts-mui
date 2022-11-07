@@ -46,6 +46,14 @@ export const CardComponent: React.FC<CardProps> = ({
         >
           Learn More
         </Button>
+        <Button
+          fullWidth
+          variant='outlined'
+          size="small"
+          disabled
+        >
+          Add to cart
+        </Button>
       </CardActions>
     </Card>
   );

@@ -1,18 +1,29 @@
+import React from 'react';
 import {
   AppBar,
+  Badge,
   Box,
   Button,
   Container,
   Grid,
+  IconButton,
   Stack,
   Toolbar,
   Typography,
-} from "@mui/material";
-import React from "react";
-import { useNavigate } from "react-router-dom";
+} from '@mui/material';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { useNavigate } from 'react-router-dom';
+import { CartComponent } from './Cart';
 
 export const NavBar: React.FC<{}> = () => {
   const navigate = useNavigate();
+
+  const [open, setOpen] = React.useState<boolean>(false);
+
+  const handleStateViewDrawer = () => {
+    setOpen((state) => !state);
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="sticky">
@@ -29,7 +40,15 @@ export const NavBar: React.FC<{}> = () => {
               </Grid>
               <Grid item>
                 <Stack direction="row" spacing={2}>
-                  <Button variant="contained" onClick={() => navigate("login")}>
+                  <IconButton
+                    color="primary"
+                    onClick={() => handleStateViewDrawer()}
+                  >
+                    <Badge color="error" badgeContent={2}>
+                      <ShoppingCartOutlinedIcon />
+                    </Badge>
+                  </IconButton>
+                  <Button variant="contained" onClick={() => navigate('login')}>
                     Login
                   </Button>
                   <Button variant="outlined">Register</Button>
@@ -39,6 +58,10 @@ export const NavBar: React.FC<{}> = () => {
           </Container>
         </Toolbar>
       </AppBar>
+      <CartComponent
+        open={open}
+        handleStateViewDrawer={handleStateViewDrawer}
+      />
     </Box>
   );
 };
