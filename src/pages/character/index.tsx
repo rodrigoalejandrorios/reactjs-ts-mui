@@ -17,7 +17,7 @@ export const CharacterPage: React.FC = () => {
         setLoading(false);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [id]);
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -37,7 +37,7 @@ export const CharacterPage: React.FC = () => {
                 </Box>
             </Grid>
             <Grid item xs={6}>
-              <img src={character!.image} style={{width:"100%", borderRadius:"0.5em"}} />
+              <img src={character!.image} alt={character!.name} style={{width:"100%", borderRadius:"0.5em"}} />
             </Grid>
           </Grid>
         )}
