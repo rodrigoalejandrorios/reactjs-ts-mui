@@ -1,0 +1,3 @@
+VERCEL_PROJECT_NAME=codrrdev-marketplace-dev
+VERCEL_TOKEN
+VERCER_SCOPE
